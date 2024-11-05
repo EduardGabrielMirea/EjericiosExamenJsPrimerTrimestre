@@ -1,37 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
     var mostrar = document.getElementById("mostrar");
-
-    var cadena = prompt("Introduce una cadena: ");
-
-    var cadenaLongitud = cadena.length;
-    var cadenaMayuscula = cadena.toUpperCase();
-    var cadenaMinuscula = cadena.toLowerCase();
-
+    var cadena = prompt("Introduce cadena");
+ 
+    var longitud = cadena.length + "<br>";
+    var mayusculas = cadena.toUpperCase() + "<br>";
+    var minusculas = cadena.toLowerCase() + "<br>";
+ 
     function separar(cadena) {
-        var cadenaSeparada = cadena.split(" ");
-        var palabra = " ";
-        for (let index = 0; index < cadenaSeparada.length; index++) {
-            palabra += cadenaSeparada[index] + "<br/>";
-        }
-        return palabra;
-    }
-    var cadenaNormal = separar(cadena);
-
-    function reversa(cadena) {
-        var cadenaSeparadaReves = cadena.split(" ").reverse();
-        var palabraReves = " ";
-        for (let index = 0; index < cadenaSeparadaReves.length; index++) {
-            palabraReves += cadenaSeparadaReves[index] + "<br/>";
-        }
-        return palabraReves;
-    }
-    var cadenaReves = reversa(cadena);
-
+         var cadenaSeparada = cadena.split(" ");
+         var palabra = "";
+             for (let index = 0; index < cadenaSeparada.length; index++) {
+                 palabra += cadenaSeparada[index] + "<br>";
+             }
+       return palabra;      
+     }
+     var cadenaNormal = separar(cadena);
+ 
+     function reves(cadena) {
+         var cadenaReves = cadena.split(" ").reverse();
+         var palabra = "";
+             for (let index = 0; index < cadenaReves.length; index++) {
+                 palabra += cadenaReves[index] + "<br>";
+             }
+     return palabra;
+     }
+     var cadenaReves = reves(cadena);
+ 
     mostrar.innerHTML = `
-   La longitud de la cadena es ${cadenaLongitud} caracteres.
-    La cadena en mayusculas es ${cadenaMayuscula}.
-    La cadena en minúsculas es ${cadenaMinuscula}.
-    La cadena separada por espacios es ${cadenaNormal}.
-    La cadena al reves es ${cadenaReves}.
-   `;
-});
+    La longitud de la cadena es ${longitud}
+    La cadena en mayúsculas es ${mayusculas}
+    La cadena en minusculas es ${minusculas}
+    La cadena normal es  ${cadenaNormal}
+    La cadena reves es ${cadenaReves}
+    `;
+ });

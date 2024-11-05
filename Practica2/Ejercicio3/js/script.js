@@ -1,14 +1,20 @@
 document.addEventListener("DOMContentLoaded",function () {
-    var title = document.getElementById("title");
-    var mensaje = "Bienvenido a mi página";
-    title.textContent = `${mensaje}`;
+    var title = document.querySelector("h1");
+    title.textContent = `Bienvenido a mi pagina`;
+    var mensaje = document.getElementById("mensaje");
 
-    var navegador = document.getElementById("navegador");
-    navegador.textContent = navigator.userAgent;
+    mensaje.textContent = navigator.userAgent;
 
-    if (confirm("¿Quieres continuar?")) {
-        alert("Continuamos...");
-    }else{
-        alert("No continuamos.");
+    switch (confirm("Continuamos?")) {
+        case true:
+            alert("Continuamos...");
+            break;
+        case false:
+            alert("no continuamos...");
+            break;
+        default:
+            alert("no se pudo determinar");
+            break;
     }
+
 });

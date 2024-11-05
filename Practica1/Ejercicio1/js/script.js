@@ -1,8 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var mostSuma = document.getElementById("most-suma");
-    var mostMayores = document.getElementById("most-mayores");
+document.addEventListener("DOMContentLoaded",function () {
+    
+    var numeros = [];
+     
+    for (let index = 0; index < 5; index++) {
+        var numero = parseInt(prompt("Introduce 5 numeros enteros."));
+        numeros.push(numero);
+    }
+    console.log("los numeros introducidos son: " + numeros);
 
-    var numeros = [1, 2, 100, 200, 300];
     var suma = 0;
     var mayores = 0;
 
@@ -14,6 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    mostSuma.textContent = `La suma de los numeros es: ${suma}`;
-    mostMayores.textContent = `Hay ${mayores} numeros mayores a 100`;
+    console.log("La suma de los numeros es: " + suma);
+    console.log("Hay " + mayores + " numeros mayores que 100");
 });

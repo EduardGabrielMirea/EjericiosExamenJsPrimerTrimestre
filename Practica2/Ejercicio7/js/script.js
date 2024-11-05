@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded",function () {
     var body = document.querySelector("body");
-    var botonera = document.getElementById("botonera");
-
-    botonera.addEventListener("click", function (event) {
-        if (event.target.id === "azul") {
-            body.style.backgroundColor = "blue";
-        } else if(event.target.id === "verde") {
-            body.style.backgroundColor = "green";
-        } else if (event.target.id === "rojo"){
-            body.style.backgroundColor = "red";
-        }
+    
+    var acciones = {
+        verde: () => body.style.backgroundColor = "green",
+        azul: () => body.style.backgroundColor = "blue",
+        rojo: () => body.style.backgroundColor = "red",
+        default: () => alert("No se a indicado color")
+    };
+    
+    function manejarEvento(event) {
+        var accion = acciones[event.target.id] || acciones.default;
+        accion();
+    }
+    
+    document.addEventListener("click",manejarEvento);
+    
     });
-
-});

@@ -1,18 +1,15 @@
 document.addEventListener("DOMContentLoaded",function () {
-    const contador = document.getElementById("contador");
-    contador.value = 0;
-    contador.readOnly = true; //readOnly para que no se pueda editar.
 
     var acciones = {
-        sumar: () => {
-            contador.value = parseInt(contador.value) + 10;
-        },
-        inicializar: () => {
-            contador.value = 0;
-        }
+         submit: () =>{
+             var dniInput = document.getElementById("dni").value;
+             dniInput.trim() === "" 
+                 ? alert("El campo DNI no tiene datos. Por favor, ingresa un valor.")
+                 : alert("Formulario enviado correctamente.");
+         }
     };
-
-    document.getElementById("sumar").addEventListener("click", () => acciones.sumar());
-    document.getElementById("inicializar").addEventListener("click", () => acciones.inicializar());
-
-});
+ 
+     document.getElementById("submit").addEventListener("click",() => acciones.submit());
+ 
+ });
+ 

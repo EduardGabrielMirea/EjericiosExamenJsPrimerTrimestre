@@ -3,16 +3,15 @@ document.addEventListener("DOMContentLoaded",function () {
    var mostTotal = document.getElementById("most-total");
 
    
-    var precio = prompt("Introduce un precio.");
-   var precioFloat = parseFloat(precio);
+   var precio = parseFloat(prompt("Introduce un precio: "));
     
-   function calcularIva(precioFloat) {
-        return (precioFloat * 21) / 100;
+   function calcularIva(precio) {
+        return (precio * 21) / 100;
     }
-    var iva = calcularIva(precioFloat);
-    var total = precioFloat + iva;
+    var iva = calcularIva(precio);
+    var total = precio + iva;
 
-    mostIva.textContent = `El iva es ${iva.toFixed(2)}`;
-    mostTotal.textContent = `El total con iva es ${total}`;
+    mostIva.textContent = `El iva es ${iva}`;
+    mostTotal.textContent = `El total con iva es ${total.toFixed(2)}`;
 
 });
