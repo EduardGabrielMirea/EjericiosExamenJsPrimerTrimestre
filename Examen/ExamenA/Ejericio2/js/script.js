@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
+    var link1 = document.getElementById("1");
+    var link2 = document.getElementById("2");
+    var link3 = document.getElementById("3");
 
-    var link1 = document.querySelector("#contenido1 a");
-    var links = document.querySelectorAll("a");
 
-    function cambiarTamano(event) {
-        if (event.target === link1 && event.type === "mouseover") {
-            links.forEach(link => link.style.fontSize = "20pt");
-        } else if (event.type === "mouseover") {
-            links.forEach(link => link.style.fontSize = "16pt");
-        } else if (event.type === "mouseout") {
-            links.forEach(link => link.style.fontSize = "");
+    const acciones = {
+        1: () => {
+            link1.style.fontSize = "20px";
+            link2.style.fontSize = "20px";
+            link3.style.fontSize = "20px";
         }
     }
 
-    links.forEach(link => {
-        link.addEventListener("mouseover", cambiarTamano);
-        link.addEventListener("mouseout", cambiarTamano);
-    });
+      // La función que ejecuta la acción basada en el id
+    function manejarEvento(event) {
+        const accion = acciones[event.target.id] || acciones.default; // Busca la acción, si no existe usa la default
+        accion();
+    }
+    
+    document.addEventListener('click', manejarEvento);
 });

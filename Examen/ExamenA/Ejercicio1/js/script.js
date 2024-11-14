@@ -1,27 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var inputClave = document.createElement("input");
+document.addEventListener("DOMContentLoaded",function () {
+    var inputClave = document.createElement("input","text");
     inputClave.id = "clave";
-    inputClave.type = "text";
-    inputClave.placeholder = "Ingrese clave (ej: A444)";
 
     var form = document.querySelector("form");
     form.appendChild(inputClave);
 
-    form.addEventListener('submit', function (event) {
+    var boton = document.getElementById("validar");
+    boton.addEventListener('submit',function (event) {
         if (!validarClave()) {
-            event.preventDefault(); // Evita el envío si la clave es inválida
-        }else{
-            alert("La clave es correcta");
+            event.preventDefault();
         }
+    
     });
-
+    
     function validarClave() {
         var clave = document.getElementById("clave").value;
-        var patron = /^[A-Z]\d{3}$/;
-        if (!patron.test(clave)) {
-            alert("Clave incorrecta. Debe comenzar con una letra mayúscula seguida de tres números.");
+        //La clave debe contener letra mayuscula, y 3 numeros ej: A444-valida, a444-invalida.
+        var patron = new RegExp("^(?=.*[A-Z])(?=.*[0-9]{3}");
+        if (!clave.match(patron)) {
+            alert("Calve incorrecta");
             return false;
-        }
+        } 
         return true;
     }
 });
